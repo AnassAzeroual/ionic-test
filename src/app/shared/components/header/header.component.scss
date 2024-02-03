@@ -1,0 +1,34 @@
+img {
+    width: 150px;
+}
+
+ion-header {
+    box-shadow: none;
+
+    .header-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .child-1 {
+            background-color: #80b1b7;
+            width: 44%;
+            height: 156px;
+
+            .icon {
+                width: 150px;
+            }
+        }
+
+        .child-2 {
+            background-color: white;
+            width: 56%;
+            text-align: end;
+            height: 156px;
+
+            .menu {
+                font-size: 60px;
+            }
+        }
+    }
+}

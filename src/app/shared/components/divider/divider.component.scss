@@ -1,0 +1,26 @@
+.waves {
+    // background-color: red;
+    transform: rotate(90deg);
+    position: relative;
+    top: 0;
+    left: 70px;
+    /* max-height: 150px; */
+    width: 100vw;
+}
+
+.parallax {
+    animation-name: move-forever;
+    animation-delay: 1s;
+    animation-duration: 6s;
+    animation-fill-mode: both;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(85px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-90px, 0, 0);
+    }
+}
