@@ -6,6 +6,7 @@ import { DividerComponent } from '../shared/components/divider/divider.component
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { SharedService } from '../shared/services/shared.service';
 import Swal from 'sweetalert2'
+import { map } from 'rxjs';
 @Component({
   selector: 'app-welcome',
   templateUrl: 'welcome.page.html',
@@ -25,35 +26,30 @@ export class WelcomePage {
 
 
   ngOnInit(): void {
-    this.srvShared.checkIpAddress().subscribe(res => {
-      if (!res.ipAddress) return
-      // Extract numbers from IP address and calculate their sum
-      const sumOfNumbers = res.ipAddress.split('.')
-        .map(Number)
-        .reduce((acc, curr) => acc + curr, 0);
+    this.srvShared.checkIpAddress()
+      //? pipe for testing
+      // .pipe(
+      //   map(v => {
+      //     v.ipAddress = '0.0.0.0'
+      //     return v
+      //   })
+      // )
+      .subscribe(res => {
+        if (!res.ipAddress) return
+        // Extract numbers from IP address and calculate their sum
+        const sumOfNumbers = res.ipAddress.split('.')
+          .map(Number)
+          .reduce((acc, curr) => acc + curr, 0);
 
-      // Compare the sum with 100 and display the appropriate alert
-      if (sumOfNumbers > 100) {
         Swal.fire({
           customClass: {
-            container: 'swal2-container' // Add your custom class here
+            container: 'swal2-container' // a custom class to fix issue of display 
           },
-          title: 'Successes!',
-          text: 'OK',
-          icon: 'success',
+          title: sumOfNumbers > 100 ? 'OK' : 'KO',
+          icon: sumOfNumbers > 100 ? 'success' : 'error',
           confirmButtonText: 'Cool'
         })
-      } else {
-        Swal.fire({
-          customClass: {
-            container: 'swal2-container' // Add your custom class here
-          },
-          title: 'Error!',
-          text: 'KO',
-          icon: 'error',
-          confirmButtonText: 'Cool'
-        })
-      }
-    })
+
+      })
   }
 }
