@@ -4,7 +4,9 @@
   justify-content: space-evenly;
   font-family: Arial, sans-serif;
 }
-
+::ng-deep.swal2-container{
+  height: 100vh !important;
+}
 .header {
   grid-area: header;
 }
