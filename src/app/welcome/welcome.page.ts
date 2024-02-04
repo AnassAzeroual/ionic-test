@@ -1,43 +1,47 @@
+import { JsonPipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import Swal from 'sweetalert2';
 import { CustomInputComponent } from '../shared/components/custom-input/custom-input.component';
+import { CustomKeyPointComponent } from '../shared/components/custom-key-point/custom-key-point.component';
 import { DividerComponent } from '../shared/components/divider/divider.component';
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { SharedService } from '../shared/services/shared.service';
-import Swal from 'sweetalert2'
-import { map } from 'rxjs';
-import { CustomKeyPointComponent } from '../shared/components/custom-key-point/custom-key-point.component';
-import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-welcome',
   templateUrl: 'welcome.page.html',
   styleUrls: ['welcome.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar,NgFor, IonTitle, IonContent, HeaderComponent, DividerComponent, CustomInputComponent,CustomKeyPointComponent, ReactiveFormsModule]
+  imports: [IonHeader, IonToolbar, NgFor, NgIf, JsonPipe, IonTitle, IonContent, HeaderComponent, DividerComponent, CustomInputComponent, CustomKeyPointComponent, ReactiveFormsModule]
 })
 export class WelcomePage {
   form!: FormGroup;
-  keyPoints: {img:string,description:string}[] = []
+  keyPoints: { img: string, description: string }[] = []
+  isSubmitted = false
   constructor(private fb: FormBuilder, private srvShared: SharedService) {
     this.form = fb.group({
-      fullName: ['Anass Azeroual', []],
-      intention: ['Dev', []],
-      dream: ['family', []],
+      fullName: [null, [Validators.required]],
+      intention: ['L\'intention, l\'objectif de ce Shynlei', [Validators.required]],
+      dream: [null, [Validators.required]],
     });
     this.keyPoints = [
-      {img:'Page-1.svg',description:'Le rêve libre l\'expression'},
-      {img:'Page-2.svg',description:'Le sens éclaire le parcours'},
-      {img:'Page-3.svg',description:'La différence rend unique'},
-      {img:'Page-4.svg',description:'La valeur humaine met en mouvement'},
-      {img:'Page-5.svg',description:'La clé exprime le style'},
-      {img:'Page-6.svg',description:'Le parcours associe rêve et réalité'},
-      {img:'Page-7.svg',description:'Le ciel bleu révèle l\'alignement'},
+      { img: 'Page-1.svg', description: 'Le rêve libre l\'expression' },
+      { img: 'Page-2.svg', description: 'Le sens éclaire le parcours' },
+      { img: 'Page-3.svg', description: 'La différence rend unique' },
+      { img: 'Page-4.svg', description: 'La valeur humaine met en mouvement' },
+      { img: 'Page-5.svg', description: 'La clé exprime le style' },
+      { img: 'Page-6.svg', description: 'Le parcours associe rêve et réalité' },
+      { img: 'Page-7.svg', description: 'Le ciel bleu révèle l\'alignement' },
     ]
   }
 
+  get f() {
+    return this.form.controls;
+  }
 
-  ngOnInit(): void {
+
+  private checkIpAddress() {
     this.srvShared.checkIpAddress()
       //? pipe for testing
       // .pipe(
@@ -47,7 +51,7 @@ export class WelcomePage {
       //   })
       // )
       .subscribe(res => {
-        if (res.ipAddress) return
+        if (!res.ipAddress) return;
         // Extract numbers from IP address and calculate their sum
         const sumOfNumbers = res.ipAddress.split('.')
           .map(Number)
@@ -60,8 +64,17 @@ export class WelcomePage {
           title: sumOfNumbers > 100 ? 'OK' : 'KO',
           icon: sumOfNumbers > 100 ? 'success' : 'error',
           confirmButtonText: 'Cool'
-        })
+        });
 
-      })
+      });
+  }
+
+  submit() {
+    this.isSubmitted = true;
+    console.log(this.form.value);
+    if (this.form.valid) {
+      this.checkIpAddress();
+    }
+
   }
 }

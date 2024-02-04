@@ -1,5 +1,5 @@
-<label for="intention">{{name}}:</label>
-<input class="input" [(ngModel)]="model"
+<label for="intention">{{name}} :</label>
+<input class="input" [ngClass]="{'border-bottom': !model}" [(ngModel)]="model" (ngModelChange)="inputChanged($event)"
   type="text"
   [placeholder]="placeholder"
 />

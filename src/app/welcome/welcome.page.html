@@ -10,22 +10,19 @@
         Faire votre Shynlei, jouer avec, c'est l'occasion d'écouter vos rêves,
         de les partager et de prendre confiance dans votre richesse.
       </p>
-      <div [formGroup]="form">
-        <app-custom-input
-          formControlName="fullName"
-          name="Nom et prénom"
-          placeholder=""
-        ></app-custom-input>
-        <app-custom-input
-          formControlName="intention"
-          name="Mon intention"
-          placeholder="L'intention, l'objectif de ce Shynlei"
-        ></app-custom-input>
-        <app-custom-input
-          formControlName="dream"
-          name="Mon rêve"
-          placeholder=""
-        ></app-custom-input>
+      <div [formGroup]="form" class="form">
+        <app-custom-input class="inputs" formControlName="fullName" name="Nom et prénom" placeholder=""></app-custom-input>
+        <p class="errors_message" *ngIf="f['fullName']?.['errors']?.['required'] && isSubmitted">
+          required field
+        </p>
+        <app-custom-input class="inputs" formControlName="intention" name="Mon intention" placeholder="L'intention, l'objectif de ce Shynlei"></app-custom-input>
+        <p class="errors_message" *ngIf="f['intention']?.['errors']?.['required'] && isSubmitted">
+          required field
+        </p>
+        <app-custom-input class="inputs" formControlName="dream" name="Mon rêve" placeholder=""></app-custom-input>
+        <p class="errors_message" *ngIf="f['dream']?.['errors']?.['required'] && isSubmitted">
+          required field
+        </p>
       </div>
     </div>
     <div class="middle">
@@ -43,7 +40,7 @@
       </div>
 
       <div class="button-container">
-        <p>exprimer mes rêves ></p>
+        <p (click)="submit()">exprimer mes rêves ></p>
       </div>
     </div>
   </div>

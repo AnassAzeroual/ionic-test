@@ -1,4 +1,5 @@
 /* eslint-disable @angular-eslint/no-input-rename */
+import { NgClass } from '@angular/common';
 import { Component, Input, OnDestroy, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/angular/standalone';
@@ -8,7 +9,7 @@ import { IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/angular/standal
   templateUrl: './custom-input.component.html',
   styleUrls: ['./custom-input.component.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonIcon,FormsModule],
+  imports: [IonHeader, IonToolbar,NgClass, IonTitle, IonIcon,FormsModule],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
