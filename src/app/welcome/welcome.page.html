@@ -3,7 +3,31 @@
     <app-header></app-header>
   </div>
   <div class="container">
-    <div class="left">A</div>
+    <div class="left">
+      <h1>Pour commencer...</h1>
+
+      <p>
+        Faire votre Shynlei, jouer avec, c'est l'occasion d'écouter vos rêves,
+        de les partager et de prendre confiance dans votre richesse.
+      </p>
+      <div [formGroup]="form">
+        <app-custom-input
+          formControlName="fullName"
+          name="Nom et prénom"
+          placeholder=""
+        ></app-custom-input>
+        <app-custom-input
+          formControlName="intention"
+          name="Mon intention"
+          placeholder="L'intention, l'objectif de ce Shynlei"
+        ></app-custom-input>
+        <app-custom-input
+          formControlName="dream"
+          name="Mon rêve"
+          placeholder=""
+        ></app-custom-input>
+      </div>
+    </div>
     <div class="middle">
       <app-divider></app-divider>
     </div>

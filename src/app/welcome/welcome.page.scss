@@ -2,6 +2,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
+  font-family: Arial, sans-serif;
 }
 
 .header {
@@ -10,9 +11,38 @@
 
 .left {
   grid-area: left;
+  color: white;
   background-color: #80b1b7;
   width: 44%;
   height: 100vh;
+  z-index: 1000;
+  padding-left: 46px;
+  h1 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  p {
+    margin-bottom: 30px;
+    width: 451px;
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 23px;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #name , #intention, #rel {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #80b1b7;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid white;
+  }
 }
 
 .middle {
