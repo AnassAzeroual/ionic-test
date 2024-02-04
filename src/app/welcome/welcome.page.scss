@@ -4,9 +4,11 @@
   justify-content: space-evenly;
   font-family: Arial, sans-serif;
 }
-::ng-deep.swal2-container{
+
+::ng-deep.swal2-container {
   height: 100vh !important;
 }
+
 .header {
   grid-area: header;
 }
@@ -19,6 +21,7 @@
   height: 100vh;
   z-index: 1000;
   padding-left: 46px;
+
   h1 {
     font-size: 30px;
     font-weight: 600;
@@ -36,7 +39,9 @@
     margin-bottom: 5px;
   }
 
-  #name , #intention, #rel {
+  #name,
+  #intention,
+  #rel {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -59,4 +64,41 @@
   width: 56%;
   height: 100vh;
   z-index: 999;
+
+  .right-header {
+    text-align: start;
+    width: 977px;
+    float: right;
+    margin: 80px 0;
+  }
+
+  .key-points-container {
+    float: right;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 39px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: ". .";
+    width: 977px;
+  }
+
+  .button-container{
+    float: right;
+    width: 977px;
+    p{
+      text-align: center;
+      margin: auto;
+      background-color: #7bbbba;
+      color: white;
+      text-transform: uppercase;
+      width: fit-content;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0px 0px 6px 0px #78909c59;
+    }
+  }
+
 }

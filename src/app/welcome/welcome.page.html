@@ -31,6 +31,20 @@
     <div class="middle">
       <app-divider></app-divider>
     </div>
-    <div class="right">C</div>
+    <div class="right">
+      <div class="right-header">
+        <h1>Votre Shynlei c'est…</h1>
+        <p>
+          7 étapes, 2 fiches pour prendre note des rencountres, 1page pour éclairer le sens, 3 interprétations pour vous aider..
+        </p>
+      </div>
+      <div class="key-points-container">
+        <app-custom-key-point *ngFor="let item of keyPoints; let i=index" [imgName]="item.img">{{i+1}}. {{item.description}}</app-custom-key-point>
+      </div>
+
+      <div class="button-container">
+        <p>exprimer mes rêves ></p>
+      </div>
+    </div>
   </div>
 </div>
