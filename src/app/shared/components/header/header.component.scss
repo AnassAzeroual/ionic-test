@@ -26,8 +26,25 @@ ion-header {
             text-align: end;
             height: 156px;
             padding: 33px 45px;
+
             .menu {
                 font-size: 60px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1500px) and (max-width: 2100px) {
+    ion-header {
+    
+        .header-wrapper {
+    
+            .child-1 {
+                width: 48%;
+            }
+            
+            .child-2 {
+                width: 52%;
             }
         }
     }

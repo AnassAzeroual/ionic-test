@@ -1,42 +1,64 @@
 <div>
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                               Header Side                               -->
+  <!-- ----------------------------------------------------------------------- -->
   <div class="header">
     <app-header></app-header>
   </div>
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                                  Body                                   -->
+  <!-- ----------------------------------------------------------------------- -->
   <div class="container">
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  Left                                   -->
+    <!-- ----------------------------------------------------------------------- -->
     <div class="left">
-      <h1>Pour commencer...</h1>
-
-      <p>
-        Faire votre Shynlei, jouer avec, c'est l'occasion d'écouter vos rêves,
-        de les partager et de prendre confiance dans votre richesse.
-      </p>
-      <div [formGroup]="form" class="form">
-        <app-custom-input class="inputs" formControlName="fullName" name="Nom et prénom" placeholder=""></app-custom-input>
-        <p class="errors_message" *ngIf="f['fullName']?.['errors']?.['required'] && isSubmitted">
-          required field
-        </p>
-        <app-custom-input class="inputs" formControlName="intention" name="Mon intention" placeholder="L'intention, l'objectif de ce Shynlei"></app-custom-input>
-        <p class="errors_message" *ngIf="f['intention']?.['errors']?.['required'] && isSubmitted">
-          required field
-        </p>
-        <app-custom-input class="inputs" formControlName="dream" name="Mon rêve" placeholder=""></app-custom-input>
-        <p class="errors_message" *ngIf="f['dream']?.['errors']?.['required'] && isSubmitted">
-          required field
+      <div class="left-header">
+        <h1>Pour commencer...</h1>
+        <p>
+          Faire votre Shynlei, jouer avec, c'est l'occasion d'écouter vos rêves,
+          de les partager et de prendre confiance dans votre richesse.
         </p>
       </div>
+      <div class="form-container">
+        <div [formGroup]="form" class="form">
+          <app-custom-input class="inputs" formControlName="fullName" name="Nom et prénom"
+            placeholder=""></app-custom-input>
+          <p class="errors_message" *ngIf="f['fullName']?.['errors']?.['required'] && isSubmitted">
+            required field
+          </p>
+          <app-custom-input class="inputs" formControlName="intention" name="Mon intention"
+            placeholder="L'intention, l'objectif de ce Shynlei"></app-custom-input>
+          <p class="errors_message" *ngIf="f['intention']?.['errors']?.['required'] && isSubmitted">
+            required field
+          </p>
+          <app-custom-input class="inputs" formControlName="dream" name="Mon rêve" placeholder=""></app-custom-input>
+          <p class="errors_message" *ngIf="f['dream']?.['errors']?.['required'] && isSubmitted">
+            required field
+          </p>
+        </div>
+      </div>
     </div>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 middle                                  -->
+    <!-- ----------------------------------------------------------------------- -->
     <div class="middle">
       <app-divider></app-divider>
     </div>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  right                                  -->
+    <!-- ----------------------------------------------------------------------- -->
     <div class="right">
       <div class="right-header">
         <h1>Votre Shynlei c'est…</h1>
         <p>
-          7 étapes, 2 fiches pour prendre note des rencountres, 1page pour éclairer le sens, 3 interprétations pour vous aider..
+          7 étapes, 2 fiches pour prendre note des rencountres, 1page pour
+          éclairer le sens, 3 interprétations pour vous aider..
         </p>
       </div>
       <div class="key-points-container">
-        <app-custom-key-point *ngFor="let item of keyPoints; let i=index" [imgName]="item.img">{{i+1}}. {{item.description}}</app-custom-key-point>
+        <app-custom-key-point *ngFor="let item of keyPoints; let i=index" [imgName]="item.img">{{i+1}}.
+          {{item.description}}</app-custom-key-point>
       </div>
 
       <div class="button-container">

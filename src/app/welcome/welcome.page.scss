@@ -98,3 +98,37 @@
   }
 
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                               CSS Media Query                              */
+/* -------------------------------------------------------------------------- */
+
+@media (min-width: 1500px) and (max-width: 2100px){
+  .left{
+    width: 48%;
+  }
+  .right{
+    border: 1px solid red;
+    padding: 0 10px 0 0;
+    width: 52%;
+    .right-header{
+      width: 650px;
+    }
+    .key-points-container {
+      float: right;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 39px 56px;
+      grid-template-areas: ". .";
+      width: 650px;
+  }
+  }
+}
+@media only screen and (max-width: 600px){
+/*Big smartphones [426px -> 600px]*/
+}
+@media only screen and (max-width: 425px){
+/*Small smartphones [325px -> 425px]*/
+}
