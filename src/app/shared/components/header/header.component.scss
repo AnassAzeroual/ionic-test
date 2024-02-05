@@ -36,15 +36,48 @@ ion-header {
 
 @media (min-width: 1500px) and (max-width: 2100px) {
     ion-header {
-    
+
         .header-wrapper {
-    
+
             .child-1 {
                 width: 48%;
             }
-            
+
             .child-2 {
                 width: 52%;
+            }
+        }
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1499px) {
+    ion-header {
+
+        .header-wrapper {
+
+            .child-1 {
+                width: 48%;
+            }
+
+            .child-2 {
+                width: 52%;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 999px) {
+    ion-header {
+
+        .header-wrapper {
+            
+            .child-1 {
+                background-color: #80b1b7;
+            }
+            
+            .child-2 {
+                background-color: #80b1b7;
             }
         }
     }

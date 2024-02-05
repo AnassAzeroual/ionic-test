@@ -1,3 +1,8 @@
+.global-wrapper {
+  // border: 1px solid red;
+  // height: 1300px;
+}
+
 .container {
   display: flex;
   align-items: flex-start;
@@ -59,6 +64,8 @@
   width: 56%;
   height: 100vh;
   z-index: 999;
+  overflow: auto;
+  height: max-content;
 
   .right-header {
     text-align: start;
@@ -79,10 +86,11 @@
     margin-bottom: 50px;
   }
 
-  .button-container{
+  .button-container {
     float: right;
     width: 977px;
-    p{
+
+    p {
       text-align: center;
       margin: auto;
       background-color: #7bbbba;
@@ -104,17 +112,19 @@
 /*                               CSS Media Query                              */
 /* -------------------------------------------------------------------------- */
 
-@media (min-width: 1500px) and (max-width: 2100px){
-  .left{
+@media (min-width: 1500px) and (max-width: 2100px) {
+  .left {
     width: 48%;
   }
-  .right{
-    border: 1px solid red;
+
+  .right {
     padding: 0 10px 0 0;
     width: 52%;
-    .right-header{
+
+    .right-header {
       width: 650px;
     }
+
     .key-points-container {
       float: right;
       display: grid;
@@ -123,12 +133,148 @@
       gap: 39px 56px;
       grid-template-areas: ". .";
       width: 650px;
-  }
+    }
+
+    .button-container {
+      width: 100%;
+    }
   }
 }
-@media only screen and (max-width: 600px){
-/*Big smartphones [426px -> 600px]*/
+
+@media (min-width: 1000px) and (max-width: 1499px) {
+  .left {
+    width: 48%;
+  }
+
+  .right {
+    padding: 0 10px 0 0;
+    width: 52%;
+
+    .right-header {
+      width: 478px;
+    }
+
+    .key-points-container {
+      float: right;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      gap: 20px 0;
+      grid-template-areas: ".";
+      width: 478px;
+    }
+
+    .button-container {
+      width: 100%;
+    }
+  }
 }
-@media only screen and (max-width: 425px){
-/*Small smartphones [325px -> 425px]*/
+
+@media (min-width: 600px) and (max-width: 999px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px 0;
+    grid-template-areas:
+      "left"
+      "right";
+    height: 100vh;
+    overflow: auto;
+
+    .middle {
+      display: none;
+    }
+
+    .left {
+      rid-area: left;
+      width: 100%;
+      height: max-content;
+      padding: 10px 30px;
+    }
+
+    .right {
+      rid-area: right;
+      width: 100%;
+      height: 900px;
+
+      .right-header {
+        width: fit-content;
+      }
+
+      .key-points-container {
+        float: inline-start;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 18px 0px;
+        grid-auto-flow: row;
+        grid-template-areas: ". .";
+        width: fit-content;
+        margin-bottom: 50px;
+      }
+
+      .button-container {
+        float: inline-start;
+        width: 100%;
+      }
+
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px 0;
+    grid-template-areas:
+      "left"
+      "right";
+    height: 100vh;
+    overflow: auto;
+
+    .middle {
+      display: none;
+    }
+
+    .left {
+      rid-area: left;
+      width: 100%;
+      height: max-content;
+      padding: 10px 30px;
+    }
+
+    .right {
+      rid-area: right;
+      width: 100%;
+      height: 1072px;
+      padding: 0 30px;
+
+      .right-header {
+        width: fit-content;
+      }
+
+      .key-points-container {
+        float: inline-start;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        gap: 18px 0px;
+        grid-auto-flow: row;
+        grid-template-areas: 
+        "."
+        ".";
+        width: fit-content;
+        margin-bottom: 50px;
+      }
+
+      .button-container {
+        // float: inline-start;
+        width: 100%;
+      }
+
+    }
+  }
 }

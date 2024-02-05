@@ -34,3 +34,12 @@
         left: 7%;
     }
 }
+
+@media (min-width: 1000px) and (max-width: 1499px) {
+    .waves {
+        top: 230px;
+        left: 6.7%;
+        width: 2000px;
+    }
+}
+
