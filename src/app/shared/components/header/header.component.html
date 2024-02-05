@@ -4,10 +4,12 @@
       <img class="icon" src="../../assets/icon/Image_2.png" />
     </div>
     <div class="child-2">
-      <ion-icon
+      <ion-icon id="open-action-sheet"
         class="menu"
         src="./../../assets/SVGs/menu-outline.svg"
       ></ion-icon>
     </div>
   </div>
 </ion-header>
+
+<ion-action-sheet trigger="open-action-sheet" header="Actions" [buttons]="actionSheetButtons"></ion-action-sheet>

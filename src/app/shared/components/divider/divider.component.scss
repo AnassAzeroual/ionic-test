@@ -13,12 +13,13 @@
     animation-duration: 8s;
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
-    }
+}
 
 @keyframes move-forever {
     0% {
         transform: translate3d(85px, 0, 0);
     }
+
     100% {
         transform: translate3d(-90px, 0, 0);
     }
@@ -44,4 +45,3 @@
         width: 2000px;
     }
 }
-
